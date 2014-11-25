@@ -12,6 +12,11 @@ describe("Game", function(){
     }
   };
 
+  function rollSpare(){
+    game.roll(5);
+    game.roll(5);
+  }
+
   it("Gutter game", function(){
     rollMany(20, 0); 
     expect(game.score()).toBe(0);
@@ -23,8 +28,7 @@ describe("Game", function(){
   });
 
   it("One spare", function(){
-    game.roll(5);
-    game.roll(5); //spare
+    rollSpare();
     game.roll(3);
     rollMany(17, 0);
     expect(game.score()).toBe(16);
