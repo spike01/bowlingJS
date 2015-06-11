@@ -1,9 +1,10 @@
 function Game(){
   this.rolls = []
-    for (var i = 0; i < 21; i++){
-      this.rolls.push(0)
-    }
   this.currentRoll = 0;
+
+  for (var i = 0; i < 21; i++){
+    this.rolls.push(0)
+  }
 };
 
 Game.prototype.roll = function(pins){
