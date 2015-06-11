@@ -22,7 +22,7 @@ Game.prototype.score = function(){
       score += 10 + this._spareBonus(frameIndex);
       nextFrame();
     } else {
-      score += this._sumOfBallsInFrame(frameIndex); 
+      score += this._sumOfRollsInFrame(frameIndex);
       nextFrame();
     }
   }
@@ -48,14 +48,14 @@ Game.prototype._isSpare = function(frameIndex){
 };
 
 Game.prototype._strikeBonus = function(frameIndex){
-  return this._nextRollScore(frameIndex) + this._nextNextRollScore(frameIndex);
+  return this._nextFrameScore(frameIndex);
 };
 
 Game.prototype._spareBonus = function(frameIndex){
   return this._nextNextRollScore(frameIndex);
 };
 
-Game.prototype._sumOfBallsInFrame = function(frameIndex){
+Game.prototype._sumOfRollsInFrame = function(frameIndex){
   return this.rolls[frameIndex] + this._nextRollScore(frameIndex);
 };
 
@@ -65,4 +65,8 @@ Game.prototype._nextRollScore = function(frameIndex){
 
 Game.prototype._nextNextRollScore = function(frameIndex){
   return this.rolls[frameIndex + 2]
+};
+
+Game.prototype._nextFrameScore = function(frameIndex){
+  return this._nextRollScore(frameIndex) + this._nextNextRollScore(frameIndex);
 };
