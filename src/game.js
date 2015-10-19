@@ -13,7 +13,7 @@ Game.prototype.score = function(){
   for(var frame = 0; frame < 10; frame++){
     if(this.isStrike(frameIndex)){
       score += 10 + this.strikeBonus(frameIndex);
-        frameIndex ++;
+      frameIndex ++;
     } else if(this.isSpare(frameIndex)){
       score += 10 + this.spareBonus(frameIndex);
       frameIndex += 2
